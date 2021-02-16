@@ -1,11 +1,11 @@
 {
   "network": "rinkeby",
   "GovernorAlpha": {
-    "address": "0x2f8bef449f3b7f1083E0173317bc26FA417C8Ae8",
-    "startBlock": "7897535"
+    "address": "0x9B63243CD27102fbEc9FAf67CA1a858dcC16Ee01",
+    "startBlock": "8079500"
   },
   "GovernanceToken": {
-    "address": "0x4CF566d201eF144e09d2f8ABE1cC0E451D79De53",
-    "startBlock": "7897534"
+    "address": "0xc4E90a8Dc6CaAb329f08ED3C8abc6b197Cf0F40A",
+    "startBlock": "8079500"
   }
 }
