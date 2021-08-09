@@ -8,11 +8,19 @@
     "auth": "graph auth https://api.thegraph.com/deploy/",
     "clean": "rm -rf build/ generated/",
     
+    "all-rinkeby": "yarn clean && yarn prepare:rinkeby && yarn gen:rinkeby && yarn deploy:rinkeby",
     "prepare:rinkeby": "mustache networks/rinkeby.json subgraph.template.yaml subgraph.rinkeby.yaml",
     "gen:rinkeby": "graph codegen subgraph.rinkeby.yaml",
     "build:rinkeby": "graph build subgraph.rinkeby.yaml",
-    "create:rinkeby": "graph create --node http://localhost:8020/ pooltogether/rinkeby-governance-subgraph",
-    "deploy:rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ pooltogether/pooltogether-rinkeby-governance subgraph.rinkeby.yaml"
+    "deploy:rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ pooltogether/pooltogether-rinkeby-governance subgraph.rinkeby.yaml",
+
+    "all-mainnet": "yarn clean && yarn prepare:mainnet && yarn gen:mainnet && yarn deploy:mainnet",
+    "prepare:mainnet": "mustache networks/mainnet.json subgraph.template.yaml subgraph.mainnet.yaml",
+    "gen:mainnet": "graph codegen subgraph.mainnet.yaml",
+    "build:mainnet": "graph build subgraph.mainnet.yaml",
+    "deploy:mainnet": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ pooltogether/pooltogether-governance subgraph.mainnet.yaml",
+
+    "tag-release": "PACKAGE_VERSION=$(./scripts/package-version.sh) && git tag -ae v$PACKAGE_VERSION && git push --tags"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.17.1",
